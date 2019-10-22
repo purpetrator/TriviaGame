@@ -1,0 +1,43 @@
+body {
+  background-color: #f9dc5c;
+}
+
+#title {
+  color: #011936;
+  text-align: center;
+  margin: 20px;
+}
+
+#maindiv {
+  background-color: #f4fffd;
+  width: 980px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+#quiz-area {
+}
+
+#timer-area {
+}
+
+#question {
+}
+
+#start-button {
+  background-color: #ed254e;
+  color: #f4fffd;
+  border-radius: 8px;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 26px;
+}
+
+/* COLOR PALLETTE
+#ED254E
+#F9DC5C
+#F4FFFD
+#011936
+#465362
+*/

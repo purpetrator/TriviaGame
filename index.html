@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Food Trivia Game</title>
+
+    <!-- Link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Link to external stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <!-- Need to have start game div, quiz div, and endgame div -->
+    <div id="title">
+        <h1>Food & Beverage Trivia</h1>
+    </div>
+
+    <div id="maindiv" class="container rounded mx-auto p-3">
+
+        <!-- This will be the start game div that is hidden once the user clicks start -->
+        <!-- <div id="start-div">
+            <button id="start-button">START THE TRIVIA GAME!</button>
+        </div> -->
+
+
+
+        <!-- This will be the div where the game occurs when question is asked -->
+        <div id="quiz-area">
+
+            <div id="timer-area">
+                Time Remaining: <div id="show-timer"> 00:00 </div>
+            </div>
+
+            <div id="question">
+                The question will go here
+            </div>
+
+            <div id="answer-buttons">
+                <button id="buttonA"> A </button><br>
+                <button id="buttonB"> B </button><br>
+                <button id="buttonC"> C </button><br>
+                <button id="buttonD"> D </button><br>
+            </div>
+        </div>
+
+
+
+        <!-- This will be the div that contains the CORRECT ANSWER screen -->
+        <!-- <div id="correct-answer">
+
+            <p>Correct!</p>
+            <p>And then an image of the correct answer will display here</p>
+
+        </div> -->
+
+
+
+    </div>
+
+
+</body>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</html>

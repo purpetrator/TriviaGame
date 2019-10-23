@@ -25,11 +25,11 @@
     <div id="maindiv" class="container rounded mx-auto p-3">
 
         <!-- This will be the start game div that is hidden once the user clicks start -->
-        <!-- <div id="start-div">
+        <div id="start-div">
             <button id="start-button">START THE TRIVIA GAME!</button>
-        </div> -->
+        </div>
 
-        <button id="showHide">Show and Hide</button>
+        <!-- <button id="showHide">Show and Hide</button> -->
 
 
 
@@ -46,10 +46,10 @@
             </p>
 
             <div id="answer-buttons">
-                <button id="buttonA"> A </button><br>
-                <button id="buttonB"> B </button><br>
-                <button id="buttonC"> C </button><br>
-                <button id="buttonD"> D </button><br>
+                <button class="answer-button" id="buttonA"> A </button><br>
+                <button class="answer-button" id="buttonB"> B </button><br>
+                <button class="answer-button" id="buttonC"> C </button><br>
+                <button class="answer-button" id="buttonD"> D </button><br>
             </div>
         </div>
 
@@ -58,8 +58,11 @@
         <!-- This will be the div that contains the CORRECT ANSWER screen -->
         <div id="results">
 
-            <p>Correct!</p>
+            <p>The correct answer was: <span id="correctText"> </span>
+            </p>
             <p>And then an image of the correct answer will display here</p>
+
+            <button id="next-question">Go to Next Question</button>
 
         </div>
 

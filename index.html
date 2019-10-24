@@ -26,7 +26,7 @@
 
         <!-- This will be the start game div that is hidden once the user clicks start -->
         <div id="start-div">
-            <button id="start-button">START THE TRIVIA GAME!</button>
+            <button class="buttonZ" id="start-button">START THE TRIVIA GAME!</button>
         </div>
 
         <!-- <button id="showHide">Show and Hide</button> -->
@@ -37,7 +37,7 @@
 
 
         <div id="timer-area">
-            Time Remaining: <div id="show-timer"> 00:00 </div>
+            Time Remaining: <div id="show-timer"> </div>
         </div>
 
         <div id="quiz-area">
@@ -57,13 +57,18 @@
 
         <!-- This will be the div that contains the CORRECT ANSWER screen -->
         <div id="results">
-
+            <div id="wrongRight"> </div>
             <p>The correct answer was: <span id="correctText"> </span>
             </p>
-            <p>And then an image of the correct answer will display here</p>
+            <div id="results-image"></div>
 
-            <button id="next-question">Go to Next Question</button>
+            <button class="buttonZ" id="next-question">Go to Next Question</button>
 
+        </div>
+
+        <div id="endGame">
+            <p>Correct answers: <span id="correct-answers"></span></p>
+            <p>Incorrect answers: <span id="incorrect-answers"></span></p>
         </div>
 
 

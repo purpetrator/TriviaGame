@@ -24,14 +24,32 @@ body {
 #question {
 }
 
-#start-button {
+.buttonZ {
   background-color: #ed254e;
   color: #f4fffd;
   border-radius: 8px;
   border: none;
   padding: 15px 32px;
+  margin: 20px;
   text-align: center;
   font-size: 26px;
+}
+
+.answer-button {
+  background-color: #011936;
+  color: #f4fffd;
+  border-radius: 8px;
+  border: none;
+  padding: 8px;
+  margin: 6px;
+  text-align: center;
+  font-size: 20px;
+  width: 280px;
+}
+
+#results-image {
+  display: flex;
+  justify-content: center;
 }
 
 /* COLOR PALLETTE

@@ -1,19 +1,20 @@
 // var isHidden = false;
 
 // Here I figured out how to show and hide objects. When one is showing, the other is not.
-$("#showHide").on("click", function() {
-  if ($("#quiz-area").is(":visible")) {
-    $("#quiz-area").hide();
-    $("#results").show();
-  } else {
-    $("#quiz-area").show();
-    $("#results").hide();
-  }
-});
+// $("#showHide").on("click", function() {
+//   if ($("#quiz-area").is(":visible")) {
+//     $("#quiz-area").hide();
+//     $("#results").show();
+//   } else {
+//     $("#quiz-area").show();
+//     $("#results").hide();
+//   }
+// });
 
-var correct = 0;
+var score = 0;
 var incorrect = 0;
 var questionsIndex = 0;
+var clockRunning = false;
 
 var questions = [
   {
@@ -63,6 +64,7 @@ $(document).ready(function() {
   $("#quiz-area").hide();
   $("#timer-area").hide();
   $("#results").hide();
+  $("#endGame").hide();
 });
 
 // User clicks start game to start, "start game" div is hidden
@@ -73,6 +75,10 @@ $(document).on("click", "#start-button", function() {
   $("#timer-area").show();
   $("#results").hide();
   writeQuestion();
+  clearTimeout(timer);
+  clearInterval(intervalId);
+  run();
+  clockRunning = true;
 });
 
 // Counter loops through questions array and displays first question
@@ -85,16 +91,32 @@ function writeQuestion() {
 }
 
 function wrongAnswer() {
-  $("#start-div").hide();
-  $("#quiz-area").hide();
-  $("#timer-area").hide();
-  $("#results").show();
-  $("#correctText").text(questions[questionsIndex].correct);
+  // Checking to see if this is not null
+  if (questions[questionsIndex]) {
+    $("#start-div").hide();
+    $("#quiz-area").hide();
+    $("#timer-area").hide();
+    $("#results").show();
+    $("#correctText").text(questions[questionsIndex].correct);
+    $("#results-image").empty();
+    $("#results-image").append(
+      "<img src=" + questions[questionsIndex].image + " width='400'/>"
+    );
+    questionsIndex += 1;
+  } else {
+    $("#start-div").hide();
+    $("#quiz-area").hide();
+    $("#timer-area").hide();
+    $("#results").hide();
+    $("#results-image").hide();
+    $("#endGame").show();
+  }
 }
 
 // Timer starts at 20 seconds and begins counting down
 
 function run() {
+  clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
 }
 
@@ -108,10 +130,16 @@ function decrement() {
   if (timer === 0) {
     //  ...run something?
     wrongAnswer();
+    clearInterval(intervalId);
+    $("#wrongRight").empty();
+    $("#wrongRight").text(
+      "Seriously? You know you at least have a 25% chance if you guess..."
+    );
+    clockRunning = false;
   }
 }
 
-run();
+// run();
 
 // User selects an answer, computer listens for click
 $(".answer-button").on("click", function() {
@@ -120,8 +148,16 @@ $(".answer-button").on("click", function() {
   // This checks to see if selected answer is correct
   var selectedAnswer = $(this).text();
   if (selectedAnswer === questions[questionsIndex].correct) {
-    correct++;
-    console.log(correct);
+    score += 1;
+    console.log(score);
+    wrongAnswer();
+    $("#wrongRight").empty();
+    $("#wrongRight").text("Congratulations! You've done good, pig!");
+  } else {
+    incorrect += 1;
+    wrongAnswer();
+    $("#wrongRight").empty();
+    $("#wrongRight").text("No! You've done bad, pig!");
   }
 });
 
@@ -136,9 +172,9 @@ $(document).on("click", "#next-question", function() {
   $("#timer-area").show();
   $("#results").hide();
   writeQuestion();
+  timer = 10;
+  run();
 });
-
-// Time remaining resets to 30 seconds
 
 // When we get to the end of questions, you see final results screen with correct, incorrect, and unanswered tallies
 
@@ -149,4 +185,4 @@ $(document).on("click", "#next-question", function() {
 //       correct++;
 //   }
 //   counter++;
-// display next question using questions[counter].question
+// display next question using questions[questionsIndex].correct

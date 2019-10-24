@@ -1,16 +1,3 @@
-// var isHidden = false;
-
-// Here I figured out how to show and hide objects. When one is showing, the other is not.
-// $("#showHide").on("click", function() {
-//   if ($("#quiz-area").is(":visible")) {
-//     $("#quiz-area").hide();
-//     $("#results").show();
-//   } else {
-//     $("#quiz-area").show();
-//     $("#results").hide();
-//   }
-// });
-
 var score = 0;
 var incorrect = 0;
 var questionsIndex = 0;
@@ -110,6 +97,8 @@ function wrongAnswer() {
     $("#results").hide();
     $("#results-image").hide();
     $("#endGame").show();
+    $("#correct-answers").text(score);
+    $("#incorrect-answers").text(incorrect);
   }
 }
 
@@ -139,8 +128,6 @@ function decrement() {
   }
 }
 
-// run();
-
 // User selects an answer, computer listens for click
 $(".answer-button").on("click", function() {
   console.log("answer was selected");
@@ -161,10 +148,6 @@ $(".answer-button").on("click", function() {
   }
 });
 
-// Results div is shown (question div is hidden)
-// If selected answer is correct, user sees correct div
-// If selected answer is wrong, user sees wrong div
-
 // Click continue to move on
 $(document).on("click", "#next-question", function() {
   $("#start-div").hide();
@@ -175,14 +158,3 @@ $(document).on("click", "#next-question", function() {
   timer = 10;
   run();
 });
-
-// When we get to the end of questions, you see final results screen with correct, incorrect, and unanswered tallies
-
-// Per Shelby
-// $(".button").on("click", function () {
-//   var answer = $(this).text();
-//   if (answer === question[counter].correct) {
-//       correct++;
-//   }
-//   counter++;
-// display next question using questions[questionsIndex].correct

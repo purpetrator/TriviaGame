@@ -78,27 +78,23 @@ function writeQuestion() {
 }
 
 function wrongAnswer() {
-  // Checking to see if this is not null
-  if (questions[questionsIndex]) {
-    $("#start-div").hide();
-    $("#quiz-area").hide();
-    $("#timer-area").hide();
-    $("#results").show();
-    $("#correctText").text(questions[questionsIndex].correct);
-    $("#results-image").empty();
-    $("#results-image").append(
-      "<img src=" + questions[questionsIndex].image + " width='400'/>"
-    );
-    questionsIndex += 1;
+  clearInterval(intervalId);
+  $("#start-div").hide();
+  $("#quiz-area").hide();
+  $("#timer-area").hide();
+  $("#results").show();
+  $("#correctText").text(questions[questionsIndex].correct);
+  $("#results-image").empty();
+  $("#results-image").append(
+    "<img src=" + questions[questionsIndex].image + " width='400'/>"
+  );
+
+  if (questionsIndex === questions.length - 1) {
+    console.log("You've reached the end of the quiz");
+    $("#next-question").hide();
+    $("#end-game").show();
   } else {
-    $("#start-div").hide();
-    $("#quiz-area").hide();
-    $("#timer-area").hide();
-    $("#results").hide();
-    $("#results-image").hide();
-    $("#endGame").show();
-    $("#correct-answers").text(score);
-    $("#incorrect-answers").text(incorrect);
+    questionsIndex += 1;
   }
 }
 
@@ -134,6 +130,7 @@ $(".answer-button").on("click", function() {
 
   // This checks to see if selected answer is correct
   var selectedAnswer = $(this).text();
+  console.log(selectedAnswer);
   if (selectedAnswer === questions[questionsIndex].correct) {
     score += 1;
     console.log(score);
@@ -150,11 +147,25 @@ $(".answer-button").on("click", function() {
 
 // Click continue to move on
 $(document).on("click", "#next-question", function() {
-  $("#start-div").hide();
-  $("#quiz-area").show();
-  $("#timer-area").show();
-  $("#results").hide();
-  writeQuestion();
-  timer = 10;
-  run();
+  if (!questions[questionsIndex]) {
+    $("#start-div").hide();
+    $("#quiz-area").hide();
+    $("#timer-area").hide();
+    $("#results").hide();
+    $("#results-image").show();
+    $("#endGame").show();
+    $("#correct-answers").text(score);
+    $("#incorrect-answers").text(incorrect);
+  } else {
+    timer = 10;
+    run();
+    $("#start-div").hide();
+    $("#quiz-area").show();
+    $("#timer-area").show();
+    $("#results").hide();
+
+    writeQuestion();
+  }
 });
+
+// I just need to code what happens when the end game button is clicked at the end

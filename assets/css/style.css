@@ -81,6 +81,10 @@ body {
   align-items: center;
 }
 
+#end-game {
+  display: none;
+}
+
 #endGame {
   display: flex;
   justify-content: center;

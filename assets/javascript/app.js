@@ -68,14 +68,16 @@ $(document).on("click", "#start-button", function() {
   clockRunning = true;
 });
 
-// I just need to code what happens when the end game button is clicked at the end
+// I need to code what happens when the end game button is clicked at the end
 $(document).on("click", "#end-game", function() {
   console.log("End game clicked");
   $("#end-game").hide();
   $("#quiz-area").hide();
   $("#timer-area").hide();
-  $("#results").show();
-  // $("#results-image").empty();
+  $("#results").hide();
+  $("#endGame").show();
+  $("#correct-answers").text(score);
+  $("#incorrect-answers").text(incorrect);
 });
 
 // Counter loops through questions array and displays first question
@@ -163,8 +165,6 @@ $(document).on("click", "#next-question", function() {
     $("#results").hide();
     $("#results-image").show();
     $("#endGame").show();
-    $("#correct-answers").text(score);
-    $("#incorrect-answers").text(incorrect);
   } else {
     timer = 10;
     run();
@@ -176,3 +176,6 @@ $(document).on("click", "#next-question", function() {
     writeQuestion();
   }
 });
+
+// End game button - wtf?
+// Mobile images, not keeping aspect

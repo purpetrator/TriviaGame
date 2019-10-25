@@ -1,15 +1,20 @@
 body {
   background-color: #f9dc5c;
+  background-image: url("https://www.transparenttextures.com/patterns/circles.png");
+  font-family: "Merriweather", serif;
 }
 
 #title {
   color: #011936;
   text-align: center;
   margin: 20px;
+  font-family: "Abril Fatface", cursive;
+  font-size: 46px;
 }
 
 #maindiv {
   background-color: #f4fffd;
+  background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
   width: 980px;
   margin: 0 auto;
   border-radius: 8px;
@@ -31,11 +36,33 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 18px;
+  margin: 20px 10px;
 }
 
 #question {
   display: flex;
   justify-content: center;
+  margin: 20px;
+  font-size: 24px;
+}
+
+#wrongRight {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  font-style: italic;
+}
+
+#correctText {
+  font-size: 24px;
+}
+
+#correct-answers {
+  font-size: 18x;
+}
+
+#incorrect-answers {
+  font-size: 18px;
 }
 
 .buttonZ {
@@ -54,7 +81,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .answer-button {
@@ -72,6 +99,7 @@ body {
 #results-image {
   display: flex;
   justify-content: center;
+  margin: 20px 10px;
 }
 
 #results {
@@ -79,6 +107,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px 10px;
+  font-size: 20px;
 }
 
 #end-game {

@@ -68,6 +68,16 @@ $(document).on("click", "#start-button", function() {
   clockRunning = true;
 });
 
+// I just need to code what happens when the end game button is clicked at the end
+$(document).on("click", "#end-game", function() {
+  console.log("End game clicked");
+  $("#end-game").hide();
+  $("#quiz-area").hide();
+  $("#timer-area").hide();
+  $("#results").show();
+  // $("#results-image").empty();
+});
+
 // Counter loops through questions array and displays first question
 function writeQuestion() {
   $("#question").text(questions[questionsIndex].question);
@@ -113,7 +123,6 @@ function decrement() {
 
   //  Once number hits zero...// If no user input (timer runs out), go to wrong div
   if (timer === 0) {
-    //  ...run something?
     wrongAnswer();
     clearInterval(intervalId);
     $("#wrongRight").empty();
@@ -167,5 +176,3 @@ $(document).on("click", "#next-question", function() {
     writeQuestion();
   }
 });
-
-// I just need to code what happens when the end game button is clicked at the end

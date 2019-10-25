@@ -14,19 +14,27 @@
     <!-- Link to external stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Merriweather&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fedb65081d.js" crossorigin="anonymous"></script>
+
+
+
 </head>
 
 <body>
     <!-- Need to have start game div, quiz div, and endgame div -->
     <div id="title">
-        <h1>Food & Beverage Trivia</h1>
+        Food & Beverage Trivia
     </div>
 
     <div id="maindiv" class="container rounded mx-auto p-3">
 
         <!-- This will be the start game div that is hidden once the user clicks start -->
         <div id="start-div">
-            <button class="buttonZ" id="start-button">START THE TRIVIA GAME!</button>
+            <button class="buttonZ" id="start-button">Start the Game <i class="fas fa-utensils"></i></button>
         </div>
 
         <!-- <button id="showHide">Show and Hide</button> -->
@@ -42,7 +50,7 @@
 
         <div id="quiz-area">
             <p id="question">
-                The question will go here
+
             </p>
 
             <div id="answer-buttons">
@@ -57,7 +65,7 @@
 
         <!-- This will be the div that contains the CORRECT ANSWER screen -->
         <div id="results">
-            <div id="wrongRight"> </div>
+            <div id="wrongRight"> </div><br>
             <p>The correct answer was: <span id="correctText"> </span>
             </p>
             <div id="results-image"></div>
